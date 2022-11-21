@@ -1,0 +1,32 @@
+{
+  "name": "plagiarism_checker",
+  "version": "1.0.0",
+  "description": "IT minors mini project using MERN stack to make a plagiarism checker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ARY2260/plagiarism_checker.git"
+  },
+  "author": "Aryan Agrawal, Harsh Nahate, Aryan Amit Barsainyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ARY2260/plagiarism_checker/issues"
+  },
+  "homepage": "https://github.com/ARY2260/plagiarism_checker#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "config": "^3.3.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "validation": "^0.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
