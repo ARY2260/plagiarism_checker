@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 
 // routes
 const test = require('./routes/api/test');
+const plag_check = require('./routes/api/plag_check');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => res.send('Plag Check activated!'));
 
 // use Routes
 app.use('/api/test', test);
+app.use('/api/plag_check', plag_check);
 
 const port = process.env.PORT || 8082;
 
