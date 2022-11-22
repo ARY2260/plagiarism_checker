@@ -12,7 +12,7 @@ class App extends Component {
       <Router>
         <Routes>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/plag-check/:id' element={<PlagCheckPage />} />
+          <Route path='/plag-check' element={<PlagCheckPage />} />
           <Route path='/signup' element={<SignUpPage />} />
         </Routes>
       </Router>

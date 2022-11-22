@@ -1,6 +1,7 @@
 // routes/api/plag_check.js
 
 const express = require('express');
+const {spawn} = require('child_process');
 const router = express.Router();
 
 // Load Book model
@@ -45,7 +46,7 @@ router.get('/:username', (req, res) => {
 //================================================
 
 
-// @route GET api/plag_check/register
+// @route POST api/plag_check/register
 // @description add/save user
 // @access Public
 router.post('/register', (req, res) => {
@@ -57,13 +58,13 @@ router.post('/register', (req, res) => {
 
 
 
-// @route GET api/books
-// @description add/save book
+// @route POST api/plag_check/nlp
+// @description compare text
 // @access Public
 //===============================================
 // TODO - token based usage
 //===============================================
-router.post('/test_nlp', (req, res) => {
+router.post('/nlp', (req, res) => {
     var results;
 
     // spawn new child process to call the python script
@@ -72,8 +73,8 @@ router.post('/test_nlp', (req, res) => {
     // collect data from script
     python.stdout.on('data', function (data) {
      console.log(`Pipe data from python script ... ${data}`);
-     results = data.toString();
-     console.log(`get results ... ${results}`);
+     results_data = data.toString();
+     console.log(`get results ... ${results_data}`);
     });
 
     // in close event we are sure that stream from child process is closed
@@ -81,7 +82,7 @@ router.post('/test_nlp', (req, res) => {
         console.log(`child process close all stdio with code ${code}`);
         
         // send data to browser
-        res.send(results)
+        res.json({results: results_data})
   });
 });
 
